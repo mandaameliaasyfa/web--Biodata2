@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+            font-family: Arial;
+            background: linear-gradient(135deg,#e3f2fd,#bbdefb);
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            }
+
+            .box{
+            background:#ffffff;
+            padding:30px;
+            border-radius:15px;
+    
+            
+            width:90%;
+            max-width:420px;
+            margin:auto;
+
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+            text-align:center;
+            }
+
+            h2{
+            color:#64b5f6;
+            }
+
+            input{
+            width:90%;
+            padding:10px;
+            margin:8px;
+            border-radius:8px;
+            border:1px solid #bbdefb;
+            background:#f7fbff;
+            }
+
+            button{
+            background:#90caf9;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            border-radius:8px;
+            cursor:pointer;
+            transition:0.3s;
+            }
+
+            button:hover{
+            background:#64b5f6;
+            }
+
+            #captcha{
+            font-weight:bold;
+            font-size:18px;
+            letter-spacing:3px;
+            background:#e3f2fd;
+            padding:6px;
+            border-radius:5px;
+            display:inline-block;
+            margin:10px;
+            }
+        </style>
+    </head>
+    <body>
+         <div class="box">
+        <h2>Login</h2>
+
+        <input type="text" id="nama" placeholder="Masukkan Nama"><br>
+        <input type="password" id="password" placeholder="Masukkan Password"><br>
+        <div id="captcha"></div>
+        <input type="text" id="inputCaptcha" placeholder="Masukkan Captcha">
+        <br><br>
+        <button onclick="login()">Submit</button>
+
+        <p id="pesan"></p>
+
+        </div>
+        <script>
+            let angka1 = Math.floor(Math.random()*10);
+            let angka2 = Math.floor(Math.random()*10);
+            let hasil = angka1 + angka2;
+
+            document.getElementById("captcha").innerHTML = angka1 + " + " + angka2;
+
+            function login(){
+
+            let nama = document.getElementById("nama").value;
+            let pass = document.getElementById("password").value;
+            let captcha = document.getElementById("inputCaptcha").value;
+
+            if(pass==="9876" && captcha==hasil){
+            window.location="Biodata.html";
+            }else{
+            document.getElementById("pesan").innerHTML="Login gagal!";
+            }
+
+            }
+
+        </script>
+    </body>
+</html>

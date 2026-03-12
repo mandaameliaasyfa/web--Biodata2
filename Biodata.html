@@ -1,0 +1,122 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biodata</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#e3f2fd,#bbdefb);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:15px;
+width:90%;
+max-width:420px;
+margin:auto;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+h2{
+text-align:center;
+color:#64b5f6;
+}
+
+input,select{
+width:100%;
+padding:8px;
+margin:6px 0;
+border-radius:8px;
+border:1px solid #bbdefb;
+background:#f7fbff;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#90caf9;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#64b5f6;
+
+}.error{
+color:red;
+font-size:14px;
+text-align:center;
+margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Biodata Lengkap</h2>
+
+<input type="text" id="nama" placeholder="Nama Lengkap">
+
+<input type="text" id="lahir" placeholder="Tempat Lahir">
+
+<input type="date" id="tanggal">
+
+<select id="jk">
+<option value="">Jenis Kelamin</option>
+<option>Laki-laki</option>
+<option>Perempuan</option>
+</select>
+
+<input type="text" id="alamat" placeholder="Alamat">
+
+<input type="text" id="sekolah" placeholder="Sekolah">
+
+<input type="text" id="hobi" placeholder="Hobi">
+
+<br><br>
+<button onclick="lanjut()">Submit</button>
+
+<p id="pesan" class="error"></p>
+
+</div>
+
+<script>
+
+function lanjut(){
+
+let nama=document.getElementById("nama").value;
+let lahir=document.getElementById("lahir").value;
+let tanggal=document.getElementById("tanggal").value;
+let jk=document.getElementById("jk").value;
+let alamat=document.getElementById("alamat").value;
+let sekolah=document.getElementById("sekolah").value;
+let hobi=document.getElementById("hobi").value;
+
+if(nama=="" || lahir=="" || tanggal=="" || jk=="" || alamat=="" || sekolah=="" || hobi==""){
+document.getElementById("pesan").innerHTML="Semua data harus diisi!";
+}else{
+/* simpan nama */
+localStorage.setItem("namaUser",nama);
+
+window.location="terimakasih.html";
+}
+
+}
+</script>
+
+</body>
+</html>

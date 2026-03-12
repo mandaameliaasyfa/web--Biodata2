@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terima Kasih</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#dbeafe,#93c5fd);
+font-family:Arial;
+overflow:hidden;
+}
+
+.box{
+width:90%;
+max-width:420px;
+margin:auto;
+}
+
+@keyframes muncul{
+0%{opacity:0; transform:translateY(50px);}
+100%{opacity:1; transform:translateY(0);}
+}
+
+/* teks nama gradient 3D */
+
+.nama3d{
+font-size:clamp(28px,5vw,44px);
+font-weight:bold;
+background:linear-gradient(45deg,#1e3a8a,#3b82f6,#60a5fa);
+-webkit-background-clip:text;
+color:transparent;
+
+text-shadow:
+2px 2px 0 #bfdbfe,
+4px 4px 0 #93c5fd,
+6px 6px 10px rgba(0,0,0,0.25);
+
+animation:zoom 2s infinite alternate;
+}
+
+@keyframes zoom{
+0%{transform:scale(1);}
+100%{transform:scale(1.1);}
+}
+
+.subjudul{
+font-size:20px;
+color:#2563eb;
+margin-top:10px;
+font-weight:bold;
+}
+
+p{
+color:#334155;
+font-size:16px;
+line-height:1.6;
+margin-top:12px;
+}
+
+/* tombol */
+
+button{
+margin-top:25px;
+padding:12px 28px;
+border:none;
+border-radius:12px;
+background:linear-gradient(45deg,#3b82f6,#60a5fa);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 8px 20px rgba(59,130,246,0.4);
+}
+
+/* bubble animasi */
+
+.bubble{
+position:absolute;
+width:14px;
+height:14px;
+background:white;
+border-radius:50%;
+opacity:0.7;
+animation:jatuh linear infinite;
+}
+
+@keyframes jatuh{
+0%{transform:translateY(-100px);}
+100%{transform:translateY(100vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="nama3d" id="namaTampil"></div>
+
+<div class="subjudul">Data Berhasil Dikirim 🎉</div>
+
+<p>
+Terima kasih telah meluangkan waktu untuk mengisi biodata dengan lengkap.
+Informasi yang Anda berikan telah berhasil diterima oleh sistem.
+</p>
+
+<p>
+Semoga hari Anda menyenangkan dan semua rencana berjalan dengan baik. ✨
+</p>
+
+<button onclick="ulang()">Kembali ke Awal</button>
+
+</div>
+
+<script>
+
+let nama=localStorage.getItem("namaUser");
+document.getElementById("namaTampil").innerHTML="Terima Kasih, "+nama+" 💙";
+
+/* animasi bubble */
+
+for(let i=0;i<45;i++){
+let b=document.createElement("div");
+b.className="bubble";
+b.style.left=Math.random()*100+"%";
+b.style.animationDuration=(Math.random()*4+3)+"s";
+document.body.appendChild(b);
+}
+
+function ulang(){
+window.location="login.html";
+}
+
+</script>
+
+</body>
+</html>
